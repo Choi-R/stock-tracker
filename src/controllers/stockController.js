@@ -1,11 +1,13 @@
-const Trade = require('../models/stockModel');
+const { sequelize } = require('../models');
+const {success, error} = require('../helpers/response')
 
 // Get all trades
 exports.getAll = async (req, res) => {
   try {
-    const trades = await Trade.findAll();
-    res.status(200).json(trades);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to retrieve trades' });
+    return success(res, "Nice", 200)
+  } 
+  catch (err) {
+    console.log(err)
+    return error(res, err, 500)
   }
 };

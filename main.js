@@ -5,8 +5,10 @@ const app = express();
 app.use(express.json());
 
 // Routes
-//const router = require('./src/routes')
-//app.use('/api/v1', router);
+const router = require('./src/routes')
+app.use('/api/v1', router);
+
+// Landing page
 app.get('/', (req, res) => {
     res.send('Welcome to the Stock Tracker API!');
   });
